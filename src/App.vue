@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <app-header></app-header>
+    <router-view></router-view>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import showBlogs from './components/showBlogs.vue';
+import listBlogs from './components/listBlogs.vue';
+import appHeader from './components/appHeader.vue';
 
 export default {
-  name: 'app',
+  name: 'App',
   components: {
-    HelloWorld
-  }
+    'show-blogs': showBlogs,
+    'list-blogs': listBlogs,
+    'app-header': appHeader,
+  },
+    data () {
+    return {
+      blogs: [],
+    }
+  },
+  computed : {
+
+  },
+  created: function(){
+    this.$http.get("https://jsonplaceholder.typicode.com/posts").then(function(data){
+      this.blogs = data.body.slice(0,10);
+    });
+  },
+  
+  // filters : {
+  //   'to-uppercase' : function(value){
+  //     return value.toUpperCase();
+  //   },
+  // },
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
