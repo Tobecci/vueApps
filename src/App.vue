@@ -30,8 +30,8 @@ export default {
 
   },
   created: function(){
-    
-  }, 
+
+  },
   filters : {
     'to-uppercase' : function(value){
       return value.toUpperCase();
