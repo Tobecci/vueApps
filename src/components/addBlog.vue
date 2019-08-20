@@ -10,9 +10,9 @@
    <v-textarea
      label="write post contents here..."
       v-model="blog.body"
-   ></v-textarea>  
+   ></v-textarea>
    <v-btn @click="addPost">Add</v-btn>
-    </v-container>  
+    </v-container>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
   methods: {
     addPost: function(){
       this.$http.post("https://tobecci-vue-learn.firebaseio.com/posts.json",this.blog)
-      .then(function(data){
+      .then(function(){
         this.blog = {};
       });
     },
