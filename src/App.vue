@@ -15,12 +15,7 @@ export default {
   },
     data () {
     return {
-      products: [
-        {name: "Banana skin", price: 20},
-        {name: "Tiny star", price: 40},
-        {name: "Green shells", price: 60},
-        {name: "Red shells", price: 80},
-      ],
+      
     }
   },
   computed : {
